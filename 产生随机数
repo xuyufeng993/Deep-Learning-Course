@@ -1,0 +1,14 @@
+import random
+print(random.choice([1, 2, 3, 4, 5]))
+print(random.choice(range(5)))
+print(random.randrange(2))
+print(random.choice("yang"))
+num1 = random.choice(range(100)) + 1
+print("1-100之间的随机数：", num1)
+print("random randrange: ", random.randrange(1, 100, 10))
+print("0-99之间的随机数：", random.randrange(100))
+print("随机生成[0,1)之间的数：", random.random())
+list = [1, 2, 3, 4, 5]
+random.shuffle(list)
+print("将序列的所有元素随机排序：", list)
+print("随机生成一个实数：", random.uniform(3, 9))
