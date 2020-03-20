@@ -1,0 +1,114 @@
+from sklearn.datasets import load_boston
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+from sklearn import datasets
+from pandas.plotting import scatter_matrix
+
+boston = load_boston()
+
+print('--- %s ---' % 'boston type')
+print(type(boston))
+print('--- %s ---' % 'boston keys')
+print(boston.keys())
+print('--- %s ---' % 'boston data')
+print(type(boston.data))
+
+print('--- %s ---' % 'boston target')
+print(type(boston.target))
+print('--- %s ---' % 'boston data shape')
+print(boston.data.shape)
+
+print('--- %s ---' % 'boston feature names')
+print(boston.feature_names);
+
+
+X = boston.data
+y = boston.target
+df = pd.DataFrame(X, columns= boston.feature_names)
+
+print('--- %s ---' % 'df.head')
+print(df.head())
+print('--- %s ---' % 'df.info')
+print(df.info())
+print('--- %s ---' % 'df.describe')
+print(df.describe())
+输出：
+--- boston type ---
+<class 'sklearn.utils.Bunch'>
+--- boston keys ---
+dict_keys(['data', 'target', 'feature_names', 'DESCR'])
+--- boston data ---
+<class 'numpy.ndarray'>
+--- boston target ---
+<class 'numpy.ndarray'>
+--- boston data shape ---
+(506, 13)
+--- boston feature names ---
+['CRIM' 'ZN' 'INDUS' 'CHAS' 'NOX' 'RM' 'AGE' 'DIS' 'RAD' 'TAX' 'PTRATIO'
+ 'B' 'LSTAT']
+--- df.head ---
+      CRIM    ZN  INDUS  CHAS    NOX     RM   AGE     DIS  RAD    TAX  \
+0  0.00632  18.0   2.31   0.0  0.538  6.575  65.2  4.0900  1.0  296.0   
+1  0.02731   0.0   7.07   0.0  0.469  6.421  78.9  4.9671  2.0  242.0   
+2  0.02729   0.0   7.07   0.0  0.469  7.185  61.1  4.9671  2.0  242.0   
+3  0.03237   0.0   2.18   0.0  0.458  6.998  45.8  6.0622  3.0  222.0   
+4  0.06905   0.0   2.18   0.0  0.458  7.147  54.2  6.0622  3.0  222.0   
+
+   PTRATIO       B  LSTAT  
+0     15.3  396.90   4.98  
+1     17.8  396.90   9.14  
+2     17.8  392.83   4.03  
+3     18.7  394.63   2.94  
+4     18.7  396.90   5.33  
+--- df.info ---
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 506 entries, 0 to 505
+Data columns (total 13 columns):
+CRIM       506 non-null float64
+ZN         506 non-null float64
+INDUS      506 non-null float64
+CHAS       506 non-null float64
+NOX        506 non-null float64
+RM         506 non-null float64
+AGE        506 non-null float64
+DIS        506 non-null float64
+RAD        506 non-null float64
+TAX        506 non-null float64
+PTRATIO    506 non-null float64
+B          506 non-null float64
+LSTAT      506 non-null float64
+dtypes: float64(13)
+memory usage: 51.5 KB
+None
+--- df.describe ---
+             CRIM          ZN       INDUS        CHAS         NOX          RM  \
+count  506.000000  506.000000  506.000000  506.000000  506.000000  506.000000   
+mean     3.593761   11.363636   11.136779    0.069170    0.554695    6.284634   
+std      8.596783   23.322453    6.860353    0.253994    0.115878    0.702617   
+min      0.006320    0.000000    0.460000    0.000000    0.385000    3.561000   
+25%      0.082045    0.000000    5.190000    0.000000    0.449000    5.885500   
+50%      0.256510    0.000000    9.690000    0.000000    0.538000    6.208500   
+75%      3.647423   12.500000   18.100000    0.000000    0.624000    6.623500   
+max     88.976200  100.000000   27.740000    1.000000    0.871000    8.780000   
+
+              AGE         DIS         RAD         TAX     PTRATIO           B  \
+count  506.000000  506.000000  506.000000  506.000000  506.000000  506.000000   
+mean    68.574901    3.795043    9.549407  408.237154   18.455534  356.674032   
+std     28.148861    2.105710    8.707259  168.537116    2.164946   91.294864   
+min      2.900000    1.129600    1.000000  187.000000   12.600000    0.320000   
+25%     45.025000    2.100175    4.000000  279.000000   17.400000  375.377500   
+50%     77.500000    3.207450    5.000000  330.000000   19.050000  391.440000   
+75%     94.075000    5.188425   24.000000  666.000000   20.200000  396.225000   
+max    100.000000   12.126500   24.000000  711.000000   22.000000  396.900000   
+
+            LSTAT  
+count  506.000000  
+mean    12.653063  
+std      7.141062  
+min      1.730000  
+25%      6.950000  
+50%     11.360000  
+75%     16.955000  
+max     37.970000  
