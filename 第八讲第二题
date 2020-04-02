@@ -1,0 +1,14 @@
+import pandas as pd
+import numpy as np
+x = np.array([64.3，,9.6,145.45,63.75,135.46,92.85,86.97,144.76,59.3,116.03])
+y = np.array([62.55,82.42,132.62,73.31,131.05,86.57,85.49,127.44,55.25,104.84])
+x_mean = np.mean(x)
+y_mean = np.mean(y)
+xsize = x.size
+zi = (x * y).sum() - xsize * x_mean *y_mean
+mu = (x ** 2).sum() - xsize * x_mean ** 2
+a = zi / mu
+b = y_mean - a * x_mean
+a = np.around(a,decimals=2)
+b = np.around(b,decimals=2)
+print(f'回归线方程:y = {a}x + {b}')  # y = 2.2x + 0.8
